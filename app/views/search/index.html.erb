@@ -1,11 +1,12 @@
-<% facade.total_results %>
+
 
 <% facade.closest_stations.each do |station| %>
   <ul>
-    <li><%= station.station_name %></li>
-    <li><%= station.access_days_time %></li>
-    <li><%= station.fuel_type_code %></li>
-    <li><%= station.distance %></li>
-    <li><%= station.street_address %></li>
+    <li>Total Results: <%= station.total_results %></li>
+    <li>Station Name: <%= station.station_name %></li>
+    <li>Access Times: <%= station.access_days_time %></li>
+    <li>Fuel Type: <%= station.fuel_type_code %></li>
+    <li>Distance: <%= station.distance %></li>
+    <li>Street Address: <%= station.street_address %></li>
   </ul>
 <% end %>
