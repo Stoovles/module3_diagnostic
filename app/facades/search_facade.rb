@@ -5,8 +5,9 @@ class SearchFacade
   end
 
   def closest_stations
+    binding.pry
     closest_station_data.map do |station_data|
-      Station.new(station_data)
+      StationSerializer.new(station_data)
     end
   end
 
@@ -18,6 +19,6 @@ class SearchFacade
 
 
     def service
-      @_service ||= NrelService.new
+      @_service ||= NrelService.new(@zip_code)
     end
 end
