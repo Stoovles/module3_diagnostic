@@ -1,6 +1,9 @@
+<h2>Total Stations: <%= facade.closest_stations[0].total_results %></h2>
+
+
+<h2>Results sorted by distance to travel:</h2>
 <% facade.closest_stations.each do |station| %>
   <ul>
-    <li>Total Results: <%= station.total_results %></li>
     <li>Station Name: <%= station.station_name %></li>
     <li>Access Times: <%= station.access_days_time %></li>
     <li>Fuel Type: <%= station.fuel_type_code %></li>
