@@ -1,10 +1,12 @@
 class SearchFacade
-attr_reader :user
 
+  def initialize(zip_code)
+    @zip_code = zip_code
+  end
 
-  def following
-    following_data.map do |following_data|
-      Follower.new(following_data)
+  def closest_stations
+    closest_station_data.map do |station_data|
+      Station.new(station_data)
     end
   end
 

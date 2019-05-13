@@ -2,13 +2,13 @@
 
 class NrelService
 
-  def initialize(nrel_token)
-    @nrel_token = nrel_token
+  def initialize(zip_code)
+    @zip_code = zip_code
   end
 
-  def closest_train_by_zip_info
-    get_json('api/alt-fuel-stations/v1/nearest.json?parameters')
-    #parameters to be filled in
+  def closest_station_by_zip_info
+    get_json("api/alt-fuel-stations/v1/nearest.json?location=#{@zip_code}")
+    #parameters to be filled in - this should be dynamic based on search params
   end
 
 
@@ -22,7 +22,7 @@ class NrelService
   def conn
     Faraday.new(url: 'https://developer.nrel.gov/') do |f|
       f.adapter Faraday.default_adapter
-      f.authorization :Bearer, @nrel_token
+      f.basic_auth(ENV["NREL_API_KEY"], '')
     end
   end
 end
