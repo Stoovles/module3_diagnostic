@@ -1,14 +1,20 @@
 class SearchFacade
 
+
   def initialize(zip_code)
     @zip_code = zip_code
   end
 
   def closest_stations
     binding.pry
-    closest_station_data.map do |station_data|
-      StationSerializer.new(station_data)
+    closest_station_data[:fuel_stations].map do |station_data|
+      Station.new(station_data)
     end
+
+  def total_results
+    closest_station_data[:total_results]
+  end
+
   end
 
   private
